@@ -1,18 +1,24 @@
 const Sequelize = require("sequelize");
 const { sequelize } = require("../dbConnection");
 
-const UserPass = sequelize.define("userPass", {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    allowNull: false,
-    primaryKey: true,
-  },
+const UserPass = sequelize.define(
+  "userPass",
+  {
+    id: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true,
+    },
 
-  password: {
-    type: Sequelize.STRING,
-    allowNull: false,
+    password: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
   },
-});
+  {
+    timestamps: false,
+  }
+);
 
 module.exports = UserPass;
