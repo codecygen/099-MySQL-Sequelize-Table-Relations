@@ -13,6 +13,10 @@ PORT=3306
 ```
 
 # Table Associations
-- Associations are set for tables. All tables are given down below.
+Associations are set for tables. All tables are given down below.
+- **hasOne** method
     - User
     - UserPass
+
+# Keywords
+- **Model-Association-for-hasOne-method**

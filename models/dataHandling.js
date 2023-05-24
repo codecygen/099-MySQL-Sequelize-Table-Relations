@@ -33,6 +33,7 @@ const bulkCreateUserAndPass = async () => {
     const createdUserPasses = await UserPass.bulkCreate(bulkPassSet);
 
     for (let i = 0; i < createdUserPasses.length; i++) {
+      // Model-Association-for-hasOne-method
       // set+UserPass is coming from the model, sequelize automatically
       // creates this method so that these 2 models can be associated.
       await createdUsers[i].setUserPass(createdUserPasses[i]);
