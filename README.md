@@ -12,11 +12,10 @@ HOST="localhost"
 PORT=3306
 ```
 
-# Table Associations
+# Table Associations and Keywords
 Associations are set for tables. All tables are given down below.
-- **hasOne** method
+- **Model-Association-for-hasOne-method**
+
+**hasOne** method, **setUserPass** and **getUserPass** covered.
     - User
     - UserPass
-
-# Keywords
-- **Model-Association-for-hasOne-method**

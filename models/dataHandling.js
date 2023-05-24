@@ -50,7 +50,7 @@ const bulkCreateUserAndPass = async () => {
     const foundUserPass = await foundUser.getUserPass();
 
     // This should show the foundUserPass
-    console.log(foundUserPass);
+    console.log(foundUserPass.toJSON());
   } catch (err) {
     console.error(err);
   }
