@@ -8,7 +8,7 @@ sequelize
   .sync({ alter: true })
   .then(async (result) => {
     await databaseAuth();
-    bulkCreateUserAndPass();
+    await bulkCreateUserAndPass();
   })
   .catch((err) => {
     console.error(err);

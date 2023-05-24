@@ -1,6 +1,6 @@
 const { User, UserPass } = require("./dbModelAssociations");
 
-const bulkCreateUserAndPass = () => {
+const bulkCreateUserAndPass = async () => {
   const bulkUserSet = [
     {
       name: "aras",
@@ -28,17 +28,18 @@ const bulkCreateUserAndPass = () => {
     },
   ];
 
-  User.bulkCreate(bulkUserSet)
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((err) => console.error(err));
+  try {
+    const createdUsers = await User.bulkCreate(bulkUserSet);
+    const createdUserPasses = await UserPass.bulkCreate(bulkPassSet);
 
-  UserPass.bulkCreate(bulkPassSet)
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((err) => console.error(err));
+    for (let i = 0; i < createdUserPasses.length; i++) {
+      // set+UserPass is coming from the model, sequelize automatically
+      // creates this method so that these 2 models can be associated.
+      await createdUsers[i].setUserPass(createdUserPasses[i]);
+    }
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 module.exports = {
