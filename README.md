@@ -14,8 +14,7 @@ PORT=3306
 
 # Table Associations and Keywords
 Associations are set for tables. All tables are given down below.
-- **Model-Association-for-hasOne-method**
-
+- **Model-Association-for-hasOne-method** <br>
 **hasOne** method, **setUserPass** and **getUserPass** covered.
     - User
     - UserPass
