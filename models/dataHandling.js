@@ -1,5 +1,4 @@
-const User = require("./tables/userTable");
-const UserPass = require("./tables/userPassTable");
+const { User, UserPass } = require("./dbModelAssociations");
 
 const bulkCreateUserAndPass = () => {
   const bulkUserSet = [
