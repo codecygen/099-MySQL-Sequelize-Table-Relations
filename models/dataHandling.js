@@ -1,5 +1,6 @@
 const { User, UserPass } = require("./dbModelAssociations");
 
+// set+UserPass, get+userPass methods
 const bulkCreateUserAndPass = async () => {
   const bulkUserSet = [
     {
@@ -45,7 +46,7 @@ const bulkCreateUserAndPass = async () => {
   try {
     const foundUser = await User.findOne({ where: { name: "aras" } });
     // Model-Association-for-hasOne-method
-    // get+UserPass is coming from the model, sequelize automatically 
+    // get+UserPass is coming from the model, sequelize automatically
     // creates this method so that these 2 models can be associated.
     const foundUserPass = await foundUser.getUserPass();
 
@@ -56,6 +57,28 @@ const bulkCreateUserAndPass = async () => {
   }
 };
 
+// create+UserPass method
+const createOneUserAndPass = async () => {
+  const newUser = {
+    name: "james",
+    email: "james2@gmai.com",
+  };
+
+  const newUserPass = {
+    password: "jamesPass",
+  };
+
+  try {
+    const createdUser = await User.create(newUser);
+    const createdUserPass = await createdUser.createUserPass(newUserPass);
+
+    console.log(createdUserPass.toJSON());
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   bulkCreateUserAndPass,
+  createOneUserAndPass,
 };
