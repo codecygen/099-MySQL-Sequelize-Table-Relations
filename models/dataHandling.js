@@ -37,6 +37,12 @@ const bulkCreateUserAndPass = async () => {
       // Model-Association-for-hasOne-method
       // set+UserPass is coming from the model name, sequelize automatically
       // creates this method so that these 2 models can be associated.
+      // It is enabled with
+      // User.hasOne(UserPass, { foreignKey: "userIDs" });
+      // Because hasOne method is put in front of User, any User model related
+      // data can use create+UserPass method. hasOne hooks UserPass model
+      // to User model so that a User can be associated with UserPass by using
+      // this method.
       await createdUsers[i].setUserPass(createdUserPasses[i]);
     }
   } catch (err) {
@@ -48,6 +54,12 @@ const bulkCreateUserAndPass = async () => {
     // Model-Association-for-hasOne-method
     // get+UserPass is coming from the model, sequelize automatically
     // creates this method so that these 2 models can be associated.
+    // It is enabled with
+    // User.hasOne(UserPass, { foreignKey: "userIDs" });
+    // Because hasOne method is put in front of User, any User model related
+    // data can use create+UserPass method. hasOne hooks UserPass model
+    // to User model so that a User can be associated with UserPass by using
+    // this method.
     const foundUserPass = await foundUser.getUserPass();
 
     // This should show the foundUserPass
@@ -70,6 +82,15 @@ const createOneUserAndPass = async () => {
 
   try {
     const createdUser = await User.create(newUser);
+    // Model-Association-for-hasOne-method
+    // create+UserPass is coming from the model, sequelize automatically
+    // creates this method so that these 2 models can be associated.
+    // It is enabled with
+    // User.hasOne(UserPass, { foreignKey: "userIDs" });
+    // Because hasOne method is put in front of User, any User model related
+    // data can use create+UserPass method. hasOne hooks UserPass model
+    // to User model so that a User can be associated with UserPass by using
+    // this method.
     const createdUserPass = await createdUser.createUserPass(newUserPass);
 
     console.log(createdUserPass.toJSON());
