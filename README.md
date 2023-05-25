@@ -17,9 +17,9 @@ PORT = 3306;
 
 Associations are set for tables. All tables are given down below.
 
-- hasOne and belongsTo associations for 2 models
-    - User
-    - UserPass
+- **hasOne** and **belongsTo** associations for 2 models
+    - **User**
+    - **UserPass**
 
     Here are the keywords for related associations.
     - **Model-Association-for-hasOne-method** <br>
