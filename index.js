@@ -13,10 +13,11 @@ sequelize
   .sync({ alter: true })
   .then(async (result) => {
     await databaseAuth();
+
     // await bulkCreateUserAndPass();
     // await createOneUserAndPass();
     // await bulkCreatePassAndUser();
-    await createOnePassAndUser();
+    // await createOnePassAndUser();
   })
   .catch((err) => {
     console.error(err);
