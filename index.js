@@ -6,6 +6,7 @@ const {
   bulkCreateUserAndPass,
   createOneUserAndPass,
   bulkCreatePassAndUser,
+  createOnePassAndUser,
 } = require("./models/dataHandling");
 
 sequelize
@@ -15,6 +16,7 @@ sequelize
     // await bulkCreateUserAndPass();
     // await createOneUserAndPass();
     // await bulkCreatePassAndUser();
+    await createOnePassAndUser();
   })
   .catch((err) => {
     console.error(err);

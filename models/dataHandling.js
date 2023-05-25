@@ -173,8 +173,41 @@ const bulkCreatePassAndUser = async () => {
   }
 };
 
+// Model-Association-for-belongsTo-method
+// belongsTo associations
+// create+User method
+const createOnePassAndUser = async () => {
+  const newUser = {
+    name: "james",
+    email: "james2@gmai.com",
+  };
+
+  const newUserPass = {
+    password: "jamesPass",
+  };
+
+  try {
+    const createdUserPass = await UserPass.create(newUserPass);
+    // create+User is coming from the model, sequelize automatically
+    // creates this method so that these 2 models can be associated.
+    // It is enabled with
+    // UserPass.belongsTo(User, { foreignKey: "userIDs" });
+    // Because belongsTo method is put in front of UserPass,
+    // any UserPass model related
+    // data can use create+User method. belongsTo hooks User model
+    // to UserPass model so that a User can be associated with UserPass by using
+    // this method.
+    const createdUser = await createdUserPass.createUser(newUser);
+
+    console.log(createdUser.toJSON());
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   bulkCreateUserAndPass,
   createOneUserAndPass,
   bulkCreatePassAndUser,
+  createOnePassAndUser,
 };
