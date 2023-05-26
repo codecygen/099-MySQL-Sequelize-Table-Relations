@@ -22,11 +22,11 @@ Associations are set for tables. All tables are given down below.
     - **UserPass**
 
     Here are the keywords for related associations.
-    - **Model-Association-for-hasOne-method** <br>
-        **hasOne** association and related **set+UserPass**, **get+UserPass**, and  **create+UserPass** are covered. <br>
-        **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered. <br>
-        Difference in between hasOne and belongsTo is covered when a foreignKey is updated. (Keyword: **hasOne-belongsTo-Difference-On-ForeignKeys**)
-    - **Model-Association-for-belongsTo-method** <br>
-        **belongsTo** association and related **setUser**, **getUser**, and **create+User** are covered. <br>
-        **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered. <br>
-        Difference in between hasOne and belongsTo is covered when a foreignKey is updated. (Keyword: **hasOne-belongsTo-Difference-On-ForeignKeys**)
+    - **Model-Association-for-hasOne-method**
+        - **hasOne** association and related **set+UserPass**, **get+UserPass**, and  **create+UserPass** are covered.
+        - **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered.
+        - Difference in between hasOne and belongsTo is covered when a foreignKey is updated. (Keyword: **hasOne-belongsTo-Difference-On-ForeignKeys**)
+    - **Model-Association-for-belongsTo-method**
+        - **belongsTo** association and related **setUser**, **getUser**, and **create+User** are covered.
+        - **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered.
+        - Difference in between hasOne and belongsTo is covered when a foreignKey is updated. (Keyword: **hasOne-belongsTo-Difference-On-ForeignKeys**)
