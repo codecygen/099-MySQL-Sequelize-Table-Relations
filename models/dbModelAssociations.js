@@ -9,6 +9,8 @@ const UserPass = require("./tables/userPassTable");
 // be automatically be deleted.
 User.hasOne(UserPass, { onDelete: "CASCADE" });
 // Alternatively
+// onUpdate: "CASCADE ensures the foreignKey is updated accordingly in other table.
+// User.hasOne(UserPass, { onUpdate: "CASCADE" });
 // User.hasOne(UserPass);
 // if you want foreignKey to be not the default "userId"
 // User.hasOne(UserPass, { foreignKey: { name: 'userIDs', allowNull: false, type: DataTypes.INTEGER } });
@@ -25,6 +27,8 @@ User.hasOne(UserPass, { onDelete: "CASCADE" });
 // be automatically be deleted.
 UserPass.belongsTo(User, { onDelete: "CASCADE" });
 // Alternatively
+// onUpdate: "CASCADE ensures the foreignKey is updated accordingly in other table.
+// UserPass.belongsTo(User, { onUpdate: "CASCADE" });
 // UserPass.belongsTo(User);
 // if you want foreignKey to be not the default "userId"
 // UserPass.belongsTo(User, { foreignKey: { name: 'userIDs', allowNull: false, type: DataTypes.INTEGER } });

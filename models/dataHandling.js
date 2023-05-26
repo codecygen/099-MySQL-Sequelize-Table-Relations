@@ -248,10 +248,134 @@ const createAndDeleteOneUserPassAndUser = async () => {
   }
 };
 
+// Model-Association-for-hasOne-method
+const updateUserToUserPassForeignKey = async () => {
+  const bulkUserSet = [
+    {
+      name: "aras",
+      email: "aras@gmail.com",
+    },
+    {
+      name: "jordan",
+      email: "jordan12@gmail.com",
+    },
+    {
+      name: "jason",
+      email: "jason341@gmail.com",
+    },
+  ];
+
+  const bulkPassSet = [
+    {
+      password: "arasPass",
+    },
+    {
+      password: "jordanPass",
+    },
+    {
+      password: "jasonPass",
+    },
+  ];
+
+  try {
+    // create Users and UserPasses
+    const createdUsers = await User.bulkCreate(bulkUserSet);
+    const createdUserPasses = await UserPass.bulkCreate(bulkPassSet);
+
+    // Associate foreign keys
+    for (let i = 0; i < createdUserPasses.length; i++) {
+      await createdUsers[i].setUserPass(createdUserPasses[i]);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+
+  try {
+    const foundUser = await User.findOne({ where: { name: "aras" } });
+    const foundUserPass = await UserPass.findOne({
+      where: { password: "jordanPass" },
+    });
+
+    // Model-Association-for-hasOne-method
+    // hasOne-belongsTo-Difference-On-ForeignKeys
+    // Here, "arasPass" will have no foreignKey and it will be set to null
+    // but "jordanPass" will have the foreignKey of 1. Because hasOne relation
+    // restricts child table to have only unique foreignKey.
+    const result = await foundUser.setUserPass(foundUserPass);
+
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+// Model-Association-for-belongsTo-method
+const updateUserPassToUserForeignKey = async () => {
+  const bulkUserSet = [
+    {
+      name: "aras",
+      email: "aras@gmail.com",
+    },
+    {
+      name: "jordan",
+      email: "jordan12@gmail.com",
+    },
+    {
+      name: "jason",
+      email: "jason341@gmail.com",
+    },
+  ];
+
+  const bulkPassSet = [
+    {
+      password: "arasPass",
+    },
+    {
+      password: "jordanPass",
+    },
+    {
+      password: "jasonPass",
+    },
+  ];
+
+  try {
+    // create Users and UserPasses
+    const createdUsers = await User.bulkCreate(bulkUserSet);
+    const createdUserPasses = await UserPass.bulkCreate(bulkPassSet);
+
+    // Associate foreign keys
+    for (let i = 0; i < createdUserPasses.length; i++) {
+      await createdUsers[i].setUserPass(createdUserPasses[i]);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+
+  try {
+    const foundUser = await User.findOne({ where: { name: "aras" } });
+    const foundUserPass = await UserPass.findOne({
+      where: { password: "jordanPass" },
+    });
+
+    // Model-Association-for-belongsTo-method
+    // hasOne-belongsTo-Difference-On-ForeignKeys
+    // Here, "arasPass" and "jordanPass" will both
+    // have the foreignKey of 1. Because belongsTo relation
+    // can be used for one to many relations as well.
+    const result = await foundUserPass.setUser(foundUser);
+
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   bulkCreateUserAndPass,
   createOneUserAndPass,
   bulkCreatePassAndUser,
   createOnePassAndUser,
   createAndDeleteOneUserPassAndUser,
+  updateUserToUserPassForeignKey,
+  updateUserPassToUserForeignKey,
 };
