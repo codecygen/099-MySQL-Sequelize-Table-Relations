@@ -23,5 +23,8 @@ Associations are set for tables. All tables are given down below.
 
     Here are the keywords for related associations.
     - **Model-Association-for-hasOne-method** <br>
-        **hasOne** association and related **setUserPass** and **getUserPass**, **createUserPass** are covered.
+        **hasOne** association and related **set+UserPass**, **get+UserPass**, and  **create+UserPass** are covered. <br>
+        **onDelete: "CASCADE"** is covered.
     - **Model-Association-for-belongsTo-method** <br>
+        **belongsTo** association and related **setUser**, **getUser**, and **create+User** are covered. <br>
+        **onDelete: "CASCADE"** is covered.

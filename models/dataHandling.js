@@ -39,7 +39,7 @@ const bulkCreateUserAndPass = async () => {
       // set+UserPass is coming from the model name, sequelize automatically
       // creates this method so that these 2 models can be associated.
       // It is enabled with
-      // User.hasOne(UserPass, { foreignKey: "userIDs" });
+      // User.hasOne(UserPass);
       // Because hasOne method is put in front of User, any User model related
       // data can use set+UserPass method. hasOne hooks UserPass model
       // to User model so that a User can be associated with UserPass by using
@@ -55,7 +55,7 @@ const bulkCreateUserAndPass = async () => {
     // get+UserPass is coming from the model, sequelize automatically
     // creates this method so that these 2 models can be associated.
     // It is enabled with
-    // User.hasOne(UserPass, { foreignKey: "userIDs" });
+    // User.hasOne(UserPass);
     // Because hasOne method is put in front of User, any User model related
     // data can use get+UserPass method. hasOne hooks UserPass model
     // to User model so that a User can be associated with UserPass by using
@@ -87,7 +87,7 @@ const createOneUserAndPass = async () => {
     // create+UserPass is coming from the model, sequelize automatically
     // creates this method so that these 2 models can be associated.
     // It is enabled with
-    // User.hasOne(UserPass, { foreignKey: "userIDs" });
+    // User.hasOne(UserPass);
     // Because hasOne method is put in front of User, any User model related
     // data can use create+UserPass method. hasOne hooks UserPass model
     // to User model so that a User can be associated with UserPass by using
@@ -139,7 +139,7 @@ const bulkCreatePassAndUser = async () => {
       // set+User is coming from the model name, sequelize automatically
       // creates this method so that these 2 models can be associated.
       // It is enabled with
-      // UserPass.belongsTo(User, { foreignKey: "userIDs" });
+      // UserPass.belongsTo(User);
       // Because belongsTo method is put in front of UserPass,
       // any UserPass model related
       // data can use set+User method. belongsTo hooks User model
@@ -158,7 +158,7 @@ const bulkCreatePassAndUser = async () => {
     // get+User is coming from the model, sequelize automatically
     // creates this method so that these 2 models can be associated.
     // It is enabled with
-    // UserPass.belongsTo(User, { foreignKey: "userIDs" });
+    // UserPass.belongsTo(User);
     // Because belongsTo method is put in front of UserPass,
     // any UserPass model related
     // data can use get+User method. belongsTo hooks User model
@@ -191,7 +191,7 @@ const createOnePassAndUser = async () => {
     // create+User is coming from the model, sequelize automatically
     // creates this method so that these 2 models can be associated.
     // It is enabled with
-    // UserPass.belongsTo(User, { foreignKey: "userIDs" });
+    // UserPass.belongsTo(User);
     // Because belongsTo method is put in front of UserPass,
     // any UserPass model related
     // data can use create+User method. belongsTo hooks User model
@@ -205,9 +205,53 @@ const createOnePassAndUser = async () => {
   }
 };
 
+// Model-Association-for-hasOne-method
+// hasOne associations
+// User.hasOne(UserPass, { onDelete: "CASCADE" });
+// onDelete: "CASCADE" makes it possible that
+// when a User entry is deleted, associated UserPass will also
+// be automatically be deleted.
+const createAndDeleteOneUserPassAndUser = async () => {
+  const newUser = {
+    name: "natalie12121202",
+    email: "natalie12121202@gmai.com",
+  };
+
+  const newUserPass = {
+    password: "natalie12121202Pass",
+  };
+
+  try {
+    const createdUserPass = await UserPass.create(newUserPass);
+    // UserPass.belongsTo(User);
+    const createdUser = await createdUserPass.createUser(newUser);
+
+    console.log(createdUser.toJSON());
+  } catch (err) {
+    console.error(err);
+  }
+
+  try {
+    // If the setting is like
+    // User.hasOne(UserPass);
+    // UserPass.belongsTo(User);
+    // This will only delete User table,
+    // associated UserPass table won't be deleted.
+    // In order to set that up, it has to be set like
+    // User.hasOne(UserPass, { onDelete: "CASCADE" });
+    const deletedUser = await User.destroy({
+      where: { name: "natalie12121202" },
+    });
+    console.log(deletedUser);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   bulkCreateUserAndPass,
   createOneUserAndPass,
   bulkCreatePassAndUser,
   createOnePassAndUser,
+  createAndDeleteOneUserPassAndUser,
 };

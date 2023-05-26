@@ -2,21 +2,30 @@ const User = require("./tables/userTable");
 const UserPass = require("./tables/userPassTable");
 
 // Model-Association-for-hasOne-method
-// This association enables methods like 
+// This association enables methods like
 // set+UserPass, get+UserPass, create+UserPass
-User.hasOne(UserPass);
+// onDelete: "CASCADE" makes it possible that
+// when a User entry is deleted, associated UserPass will also
+// be automatically be deleted.
+User.hasOne(UserPass, { onDelete: "CASCADE" });
 // Alternatively
+// User.hasOne(UserPass);
+// if you want foreignKey to be not the default "userId"
 // User.hasOne(UserPass, { foreignKey: { name: 'userIDs', allowNull: false, type: DataTypes.INTEGER } });
 // or
-// User.hasOne(UserPass, { foreignKey: "userIDs" });
+// User.hasOne(UserPass, { foreignKey: "userIDs" })
 // ---------------------------------------------------------------
 // ---------------------------------------------------------------
 // ---------------------------------------------------------------
 // Model-Association-for-belongsTo-method
-// This association enables methods like 
+// This association enables methods like
 // set+User, get+User, create+User
-UserPass.belongsTo(User);
+// onDelete: "CASCADE" makes it possible that
+// when a UserPass entry is deleted, associated User will also
+// be automatically be deleted.
+UserPass.belongsTo(User, { onDelete: "CASCADE" });
 // Alternatively
+// UserPass.belongsTo(User);
 // if you want foreignKey to be not the default "userId"
 // UserPass.belongsTo(User, { foreignKey: { name: 'userIDs', allowNull: false, type: DataTypes.INTEGER } });
 // or
