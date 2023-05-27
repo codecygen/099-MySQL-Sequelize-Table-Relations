@@ -8,8 +8,9 @@ const {
   bulkCreatePassAndUser,
   createOnePassAndUser,
   createAndDeleteOneUserPassAndUser,
-  updateUserToUserPassForeignKey, 
+  updateUserToUserPassForeignKey,
   updateUserPassToUserForeignKey,
+  bulkCreateUserAndPost,
 } = require("./models/dataHandling");
 
 sequelize
@@ -24,6 +25,7 @@ sequelize
     // await createAndDeleteOneUserPassAndUser();
     // await updateUserToUserPassForeignKey();
     // await updateUserPassToUserForeignKey();
+    // await bulkCreateUserAndPost();
   })
   .catch((err) => {
     console.error(err);

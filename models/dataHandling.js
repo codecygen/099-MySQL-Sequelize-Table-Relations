@@ -1,4 +1,4 @@
-const { User, UserPass, userPost } = require("./dbModelAssociations");
+const { User, UserPass, UserPost } = require("./dbModelAssociations");
 
 // Model-Association-for-hasOne-method
 // hasOne associations
@@ -370,6 +370,49 @@ const updateUserPassToUserForeignKey = async () => {
   }
 };
 
+// Model-Association-for-hasMany-method-for-One-to-Many-Relation
+const bulkCreateUserAndPost = async () => {
+  const bulkUserSet = [
+    {
+      name: "hannah",
+      email: "hannah@gmail.com",
+    },
+    {
+      name: "william",
+      email: "william@gmail.com",
+    },
+    {
+      name: "donnah",
+      email: "donnah@gmail.com",
+    },
+  ];
+
+  const bulkPostSet = [
+    {
+      post: "When in Rome, do as the Romans.",
+    },
+    {
+      post: "No man is an island.",
+    },
+    {
+      post: "Fortune favors the bold.",
+    },
+    {
+      post: "A picture is worth a thousand words.",
+    },
+    {
+      post: "The early bird catches the worm.",
+    },
+  ];
+
+  try {
+    const createdUsers = await User.bulkCreate(bulkUserSet);
+    const createdPosts = await UserPost.bulkCreate(bulkPostSet);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   bulkCreateUserAndPass,
   createOneUserAndPass,
@@ -378,4 +421,5 @@ module.exports = {
   createAndDeleteOneUserPassAndUser,
   updateUserToUserPassForeignKey,
   updateUserPassToUserForeignKey,
+  bulkCreateUserAndPost,
 };
