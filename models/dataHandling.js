@@ -408,6 +408,13 @@ const bulkCreateUserAndPost = async () => {
   try {
     const createdUsers = await User.bulkCreate(bulkUserSet);
     const createdPosts = await UserPost.bulkCreate(bulkPostSet);
+
+    // Take only 2 posts
+    const createdPostSample = [createdPosts[0], createdPosts[1]];
+
+    // Model-Association-for-hasMany-method-for-One-to-Many-Relation
+    // Associate these 2 posts to users
+    await createdUsers[0].addUserPosts(createdPostSample);
   } catch (err) {
     console.error(err);
   }
