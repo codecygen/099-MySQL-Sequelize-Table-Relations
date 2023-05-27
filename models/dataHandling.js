@@ -414,7 +414,18 @@ const bulkCreateUserAndPost = async () => {
 
     // Model-Association-for-hasMany-method-for-One-to-Many-Relation
     // Associate these 2 posts to users
+    // add+UserPost+s
     await createdUsers[0].addUserPosts(createdPostSample);
+
+    const userHannah = await User.findOne({ where: { name: "hannah" } });
+    // Model-Association-for-hasMany-method-for-One-to-Many-Relation
+    // count+UserPost+s
+    const totalPostForHannah = await userHannah.countUserPosts();
+
+    // Output: There are total of 2 posts which are posted by hannah!
+    console.log(
+      `There are total of ${totalPostForHannah} posts that are posted by hannah!`
+    );
   } catch (err) {
     console.error(err);
   }
