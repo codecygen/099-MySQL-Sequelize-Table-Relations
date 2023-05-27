@@ -1,5 +1,6 @@
 const User = require("./tables/userTable");
 const UserPass = require("./tables/userPassTable");
+const UserPost = require("./tables/userPostTable");
 
 // Model-Association-for-hasOne-method
 // This association enables methods like
@@ -38,4 +39,5 @@ UserPass.belongsTo(User, { onDelete: "CASCADE" });
 module.exports = {
   User,
   UserPass,
+  UserPost,
 };

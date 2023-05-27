@@ -22,7 +22,7 @@ sequelize
     // await bulkCreatePassAndUser();
     // await createOnePassAndUser();
     // await createAndDeleteOneUserPassAndUser();
-    // updateUserToUserPassForeignKey();
+    // await updateUserToUserPassForeignKey();
     // await updateUserPassToUserForeignKey();
   })
   .catch((err) => {

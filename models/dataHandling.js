@@ -1,4 +1,4 @@
-const { User, UserPass } = require("./dbModelAssociations");
+const { User, UserPass, userPost } = require("./dbModelAssociations");
 
 // Model-Association-for-hasOne-method
 // hasOne associations
