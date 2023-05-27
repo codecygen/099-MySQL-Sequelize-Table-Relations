@@ -36,6 +36,9 @@ UserPass.belongsTo(User, { onDelete: "CASCADE" });
 // or
 // UserPass.belongsTo(User, { foreignKey: "userIDs" });
 
+
+
+
 module.exports = {
   User,
   UserPass,

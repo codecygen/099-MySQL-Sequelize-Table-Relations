@@ -17,16 +17,24 @@ PORT = 3306;
 
 Associations are set for tables. All tables are given down below.
 
-- **hasOne** and **belongsTo** associations for 2 models
-    - **User**
-    - **UserPass**
+- ## One to One Relation: <br>
 
-    Here are the keywords for related associations.
-    - **Model-Association-for-hasOne-method**
-        - **hasOne** association and related **set+UserPass**, **get+UserPass**, and  **create+UserPass** are covered.
-        - **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered.
-        - Difference in between hasOne and belongsTo is covered when a foreignKey is updated. (Keyword: **hasOne-belongsTo-Difference-On-ForeignKeys**)
-    - **Model-Association-for-belongsTo-method**
-        - **belongsTo** association and related **setUser**, **getUser**, and **create+User** are covered.
-        - **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered.
-        - Difference in between hasOne and belongsTo is covered when a foreignKey is updated. (Keyword: **hasOne-belongsTo-Difference-On-ForeignKeys**)
+  **hasOne** and **belongsTo** associations for 2 models - **User** - **UserPass**
+
+      Here are the keywords for related associations.
+      - **Model-Association-for-hasOne-method**
+          - **hasOne** association and related **set+UserPass**, **get+UserPass**, and  **create+UserPass** are covered.
+          - **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered.
+          - Difference in between hasOne and belongsTo is covered when a foreignKey is updated. (Keyword: **hasOne-belongsTo-Difference-On-ForeignKeys**)
+      - **Model-Association-for-belongsTo-method**
+          - **belongsTo** association and related **setUser**, **getUser**, and **create+User** are covered.
+          - **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered.
+          - Difference in between hasOne and belongsTo is covered when a foreignKey is updated. (Keyword: **hasOne-belongsTo-Difference-On-ForeignKeys**)
+
+- ## One to Many Relation: <br>
+
+  **hasMany** and **belongsTo** associations for 2 models - **User** - **UserPost**
+
+      Here are the keywords for related associations.
+        - **Model-Association-for-hasMany-method-for-One-to-Many-Relation**
+        - **Model-Association-for-belongsTo-method-for-One-to-Many-Relation**
