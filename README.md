@@ -41,5 +41,5 @@ Associations are set for tables. All tables are given down below.
 
         Here are the keywords for related associations.
         - **Model-Association-for-hasMany-method-for-One-to-Many-Relation**
-            - **hasMany** association and related **add+UserPost+s** and **count+UserPost+s** are covered.
+            - **hasMany** association and related **add+UserPost+s**, **count+UserPost+s**, and **remove+UserPost** are covered.
         - **Model-Association-for-belongsTo-method-for-One-to-Many-Relation**

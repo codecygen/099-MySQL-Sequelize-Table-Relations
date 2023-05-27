@@ -426,6 +426,14 @@ const bulkCreateUserAndPost = async () => {
     console.log(
       `There are total of ${totalPostForHannah} posts that are posted by hannah!`
     );
+
+    // It will find the first post
+    const firstFoundPost = await UserPost.findOne();
+    // removes the first post's association with hannah!
+    // Only second post will be associated with hannah.
+    // Model-Association-for-hasMany-method-for-One-to-Many-Relation
+    // remove+UserPost
+    await userHannah.removeUserPost(firstFoundPost);
   } catch (err) {
     console.error(err);
   }
