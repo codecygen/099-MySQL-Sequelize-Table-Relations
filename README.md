@@ -17,7 +17,7 @@ PORT = 3306;
 
 Associations are set for tables. All tables are given down below.
 
-- ## One to One Relation: <br>
+- ## One-to-One-Relation <br>
 
     **hasOne** and **belongsTo** associations for 2 models 
     - **User** 
@@ -33,7 +33,7 @@ Associations are set for tables. All tables are given down below.
             - **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered.
             - Difference in between hasOne and belongsTo is covered when a foreignKey is updated. (Keyword: **hasOne-belongsTo-Difference-On-ForeignKeys**)
 
-- ## One to Many Relation: <br>
+- ## One-to-Many-Relation <br>
 
     **hasMany** and **belongsTo** associations for 2 models 
     - **User** 

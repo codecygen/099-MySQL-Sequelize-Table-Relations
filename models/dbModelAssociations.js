@@ -2,6 +2,7 @@ const User = require("./tables/userTable");
 const UserPass = require("./tables/userPassTable");
 const UserPost = require("./tables/userPostTable");
 
+// One-to-One-Relation
 // Model-Association-for-hasOne-method
 // This association enables methods like
 // set+UserPass, get+UserPass, create+UserPass
@@ -36,8 +37,13 @@ UserPass.belongsTo(User, { onDelete: "CASCADE" });
 // or
 // UserPass.belongsTo(User, { foreignKey: "userIDs" });
 
+// ===============================================================
 
-
+// One-to-Many-Relation
+// Model-Association-for-hasMany-method-for-One-to-Many-Relation
+User.hasMany(UserPost);
+// Model-Association-for-belongsTo-method-for-One-to-Many-Relation
+UserPost.belongsTo(User);
 
 module.exports = {
   User,

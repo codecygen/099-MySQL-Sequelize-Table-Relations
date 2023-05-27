@@ -16,7 +16,7 @@ const UserPost = sequelize.define(
     },
   },
   {
-    timeStamps: false,
+    timestamps: false,
   }
 );
 
