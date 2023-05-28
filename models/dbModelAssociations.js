@@ -1,6 +1,7 @@
 const User = require("./tables/userTable");
 const UserPass = require("./tables/userPassTable");
 const UserPost = require("./tables/userPostTable");
+const UserItem = require("./tables/userItemTable");
 
 // One-to-One-Relation
 // Model-Association-for-hasOne-method
@@ -41,12 +42,13 @@ UserPass.belongsTo(User, { onDelete: "CASCADE" });
 
 // One-to-Many-Relation
 // Model-Association-for-hasMany-method-for-One-to-Many-Relation
-User.hasMany(UserPost);
+User.hasMany(UserPost, { onDelete: "CASCADE" });
 // Model-Association-for-belongsTo-method-for-One-to-Many-Relation
-UserPost.belongsTo(User);
+UserPost.belongsTo(User, { onDelete: "CASCADE" });
 
 module.exports = {
   User,
   UserPass,
   UserPost,
+  UserItem,
 };

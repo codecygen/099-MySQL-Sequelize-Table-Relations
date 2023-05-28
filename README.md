@@ -42,4 +42,12 @@ Associations are set for tables. All tables are given down below.
         Here are the keywords for related associations.
         - **Model-Association-for-hasMany-method-for-One-to-Many-Relation**
             - **hasMany** association and related **add+UserPost+s**, **count+UserPost+s**, and **remove+UserPost** are covered.
+            - Same methods of **hasOne** is also available for **hasMany**. These are mentioned as **set+UserPass**, **get+UserPass**, and  **create+UserPass**.
         - **Model-Association-for-belongsTo-method-for-One-to-Many-Relation**
+
+
+- ## Many-to-Many-Relation <br>
+
+    **hasMany** and **belongsToMany** associations for 2 models 
+    - **User** 
+    - **UserItem**
