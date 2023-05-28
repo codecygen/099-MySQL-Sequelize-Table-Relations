@@ -50,9 +50,9 @@ UserPost.belongsTo(User, { onDelete: "CASCADE" });
 
 // Many-to-Many-Relation
 // Model-Association-for-belongsToMany-method
-User.belongsToMany(UserItem, { through: "UsersAndItems", timestamps: false });
+User.belongsToMany(UserItem, { through: "UsersAndUserItems", timestamps: false });
 // Model-Association-for-belongsToMany-method
-UserItem.belongsToMany(User, { through: "UsersAndItems", timestamps: false });
+UserItem.belongsToMany(User, { through: "UsersAndUserItems", timestamps: false });
 
 module.exports = {
   User,
