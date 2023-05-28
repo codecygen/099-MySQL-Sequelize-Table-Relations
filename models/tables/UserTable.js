@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 const { sequelize } = require("../dbConnection");
 
-const UserPost = sequelize.define(
-  "userPost",
+const User = sequelize.define(
+  "User",
   {
     id: {
       type: Sequelize.INTEGER,
@@ -11,8 +11,17 @@ const UserPost = sequelize.define(
       primaryKey: true,
     },
 
-    post: {
+    name: {
       type: Sequelize.STRING,
+      allowNull: false,
+    },
+
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true,
+      },
     },
   },
   {
@@ -20,4 +29,4 @@ const UserPost = sequelize.define(
   }
 );
 
-module.exports = UserPost;
+module.exports = User;

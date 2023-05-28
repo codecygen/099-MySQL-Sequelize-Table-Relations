@@ -1,7 +1,8 @@
-const User = require("./tables/userTable");
-const UserPass = require("./tables/userPassTable");
-const UserPost = require("./tables/userPostTable");
-const UserItem = require("./tables/userItemTable");
+const User = require("./tables/UserTable");
+const UserPass = require("./tables/UserPassTable");
+const UserPost = require("./tables/UserPostTable");
+const UserItem = require("./tables/UserItemTable");
+const UsersAndUserItems = require("./tables/UsersAndUserItemsTable");
 
 // One-to-One-Relation
 // Model-Association-for-hasOne-method
@@ -50,21 +51,37 @@ UserPost.belongsTo(User, { onDelete: "CASCADE" });
 
 // Many-to-Many-Relation
 // Model-Association-for-belongsToMany-method
-User.belongsToMany(UserItem, { through: "UsersAndUserItems", timestamps: false });
+// Here, we created the join table under 
+// "./models/tables/UsersAndUserItemsTable.js"
+User.belongsToMany(UserItem, { through: UsersAndUserItems });
 // Alternatively
-// User.belongsToMany(UserItem, { 
-//   through: "UsersAndUserItems", 
-//   foreignKey: "user_id" 
+// by using trough keyword, we can manually set up the "Join Table" as well.
+// User.belongsToMany(UserItem, {
+//   through: "UsersAndUserItems",
+//   timestamps: false,
+// });
+// or
+// User.belongsToMany(UserItem, {
+//   through: "UsersAndUserItems",
+//   foreignKey: "user_id"
 // });
 // ---------------------------------------------------------------
 // ---------------------------------------------------------------
 // ---------------------------------------------------------------
 // Model-Association-for-belongsToMany-method
-UserItem.belongsToMany(User, { through: "UsersAndUserItems", timestamps: false });
+// Here, we created the join table under 
+// "./models/tables/UsersAndUserItemsTable.js"
+UserItem.belongsToMany(User, { through: UsersAndUserItems });
 // Alternatively
-// UserItem.belongsToMany(User, { 
-//   through: "UsersAndUserItems", 
-//   foreignKey: "userItem_id" 
+// by using trough keyword, we can manually set up the "Join Table" as well.
+// UserItem.belongsToMany(User, {
+//   through: "UsersAndUserItems",
+//   timestamps: false,
+// });
+// or
+// UserItem.belongsToMany(User, {
+//   through: "UsersAndUserItems",
+//   foreignKey: "userItem_id"
 // });
 
 module.exports = {
