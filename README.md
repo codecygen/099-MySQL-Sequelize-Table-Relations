@@ -48,6 +48,10 @@ Associations are set for tables. All tables are given down below.
 
 - ## Many-to-Many-Relation <br>
 
-    **hasMany** and **belongsToMany** associations for 2 models 
+    **hasMany** and **belongsToMany** associations for 2 models.
     - **User** 
     - **UserItem**
+
+    Keep in mind that, for many to many relations, and intermediary table is needed which is called "join table". Here is an example for many to many relation tables for User, UserItem and intermediary table.
+
+    ![ManyToMany]("./readme-pictures/manyToMany.png") 
