@@ -19,7 +19,7 @@ Associations are set for tables. All tables are given down below.
 
 - ## One-to-One-Relation <br>
 
-    **hasOne** and **belongsTo** associations for 2 models 
+    **hasOne** and **belongsTo** will be on 2 models 
     - **User** 
     - **UserPass**
 
@@ -35,7 +35,7 @@ Associations are set for tables. All tables are given down below.
 
 - ## One-to-Many-Relation <br>
 
-    **hasMany** and **belongsTo** associations for 2 models 
+    **hasMany** and **belongsTo** will be on 2 models 
     - **User** 
     - **UserPost**
 
@@ -51,7 +51,7 @@ Associations are set for tables. All tables are given down below.
 
     ![ManyToManyImage](./readme-pictures/manyToMany.png)
 
-    **hasMany** and **belongsToMany** associations for 2 models.
+    **belongsToMany** associations will be on 3 models
     - **User** 
     - **UserItem**
     - **UsersAndItems**, "Join Table" or intermediary table

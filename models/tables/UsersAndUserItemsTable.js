@@ -1,3 +1,5 @@
+// Model-Association-for-belongsToMany-method
+// Join Table for User and UserItem Tables
 const Sequelize = require("sequelize");
 const { sequelize } = require("../dbConnection");
 
