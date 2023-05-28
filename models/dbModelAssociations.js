@@ -46,6 +46,14 @@ User.hasMany(UserPost, { onDelete: "CASCADE" });
 // Model-Association-for-belongsTo-method-for-One-to-Many-Relation
 UserPost.belongsTo(User, { onDelete: "CASCADE" });
 
+// ===============================================================
+
+// Many-to-Many-Relation
+// Model-Association-for-belongsToMany-method
+User.belongsToMany(UserItem, { through: "UsersAndItems" });
+// Model-Association-for-belongsToMany-method
+UserItem.belongsToMany(User, { through: "UsersAndItems" });
+
 module.exports = {
   User,
   UserPass,
