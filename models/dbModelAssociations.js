@@ -51,8 +51,21 @@ UserPost.belongsTo(User, { onDelete: "CASCADE" });
 // Many-to-Many-Relation
 // Model-Association-for-belongsToMany-method
 User.belongsToMany(UserItem, { through: "UsersAndUserItems", timestamps: false });
+// Alternatively
+// User.belongsToMany(UserItem, { 
+//   through: "UsersAndUserItems", 
+//   foreignKey: "user_id" 
+// });
+// ---------------------------------------------------------------
+// ---------------------------------------------------------------
+// ---------------------------------------------------------------
 // Model-Association-for-belongsToMany-method
 UserItem.belongsToMany(User, { through: "UsersAndUserItems", timestamps: false });
+// Alternatively
+// UserItem.belongsToMany(User, { 
+//   through: "UsersAndUserItems", 
+//   foreignKey: "userItem_id" 
+// });
 
 module.exports = {
   User,
