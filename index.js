@@ -11,6 +11,7 @@ const {
   updateUserToUserPassForeignKey,
   updateUserPassToUserForeignKey,
   bulkCreateUserAndPost,
+  bulkCreateUserAndUserItem,
 } = require("./models/dataHandling");
 
 sequelize
@@ -26,6 +27,7 @@ sequelize
     // await updateUserToUserPassForeignKey();
     // await updateUserPassToUserForeignKey();
     // await bulkCreateUserAndPost();
+    // await bulkCreateUserAndUserItem();
   })
   .catch((err) => {
     console.error(err);

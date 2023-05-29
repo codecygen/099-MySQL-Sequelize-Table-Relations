@@ -439,6 +439,55 @@ const bulkCreateUserAndPost = async () => {
   }
 };
 
+// Model-Association-for-belongsToMany-method
+const bulkCreateUserAndUserItem = async () => {
+  const bulkUserSet = [
+    {
+      name: "terry",
+      email: "terry123@gmail.com",
+    },
+    {
+      name: "wendy",
+      email: "wendy45@gmail.com",
+    },
+    {
+      name: "johanna",
+      email: "johanna98@gmail.com",
+    },
+  ];
+
+  const bulkUserItemSet = [
+    {
+      item: "camera",
+    },
+    {
+      item: "passport",
+    },
+    {
+      item: "apartment",
+    },
+    {
+      item: "printer",
+    },
+    {
+      item: "microwave",
+    },
+    {
+      item: "drill",
+    },
+  ];
+
+  try {
+    const createdUsers = await User.bulkCreate(bulkUserSet);
+    const createdUserItems = await UserItem.bulkCreate(bulkUserItemSet);
+
+    console.log(createdUsers);
+    console.log(createdUserItems);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   bulkCreateUserAndPass,
   createOneUserAndPass,
@@ -448,4 +497,5 @@ module.exports = {
   updateUserToUserPassForeignKey,
   updateUserPassToUserForeignKey,
   bulkCreateUserAndPost,
+  bulkCreateUserAndUserItem,
 };
