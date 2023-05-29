@@ -58,6 +58,6 @@ Associations are set for tables. All tables are given down below.
 
         Here are the keywords for related associations.
         - **Model-Association-for-belongsToMany-method**
-            - - **belongsToMany** association and related utility methods such as **add+UserItem+s**, **count+UserPost+s**, and **remove+UserPost** are covered.
+            - - **belongsToMany** association and related utility methods such as **add+UserItem+s**, **count+UserItem+s**, and **remove+UserItem** are covered.
 
     

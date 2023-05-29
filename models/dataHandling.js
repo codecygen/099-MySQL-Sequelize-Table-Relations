@@ -487,7 +487,21 @@ const bulkCreateUserAndUserItem = async () => {
     // Model-Association-for-belongsToMany-method
     // Associate all items to users
     // add+UserItem+s
+    // user "johanna" will have all products, look at UsersAndUserItems table
+    // user "johanna" has 3 as UserId
+    // there are 6 different UserItemIds (1, 2, 3, 4, 5, 6)
     await foundUser.addUserItems(allFoundUserItems);
+
+    const foundItem = await UserItem.findOne({ where: { item: "apartment" } });
+    const allFoundUsers = await User.findAll();
+
+    // Model-Association-for-belongsToMany-method
+    // Associate all items to users
+    // add+UserItem+s
+    // item "apartment" will be owned by all users, look at UsersAndUserItems table
+    // item "apartment" has 3 as UserItemId
+    // there are 3 different UserIds (1, 2, 3)
+    await foundItem.addUsers(allFoundUsers);
   } catch (err) {
     console.error(err);
   }
