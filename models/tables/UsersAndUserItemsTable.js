@@ -14,7 +14,7 @@ const UsersAndUserItems = sequelize.define(
     },
   },
   {
-    tableName: "usersAndUserItems",
+    tableName: "UsersAndUserItems",
     timestamps: false, 
   }
 );

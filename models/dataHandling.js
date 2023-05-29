@@ -492,6 +492,8 @@ const bulkCreateUserAndUserItem = async () => {
     // there are 6 different UserItemIds (1, 2, 3, 4, 5, 6)
     await foundUser.addUserItems(allFoundUserItems);
 
+    // ================================================
+
     const foundItem = await UserItem.findOne({ where: { item: "apartment" } });
     const allFoundUsers = await User.findAll();
 
@@ -502,6 +504,25 @@ const bulkCreateUserAndUserItem = async () => {
     // item "apartment" has 3 as UserItemId
     // there are 3 different UserIds (1, 2, 3)
     await foundItem.addUsers(allFoundUsers);
+
+    // ================================================
+
+    const userWendy = await User.findOne({ where: { name: "wendy" } });
+    const itemPassport = await UserItem.findOne({
+      where: { item: "passport" },
+    });
+
+    // here UserId "2" will be associated with UserItemId "2".
+    await userWendy.addUserItems(itemPassport);
+
+    // ================================================
+
+    // Model-Association-for-belongsToMany-method
+    // **onDelete: "CASCADE"** is not needed for belongsToMany associations.
+    // This will destroy user "terry" and it will also delete its associations
+    // in UsersAndUserItems table. the UserId for "terry" is "1".
+    await User.destroy({ where: { name: "terry" } });
+
   } catch (err) {
     console.error(err);
   }

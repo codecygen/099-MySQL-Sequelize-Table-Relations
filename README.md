@@ -58,6 +58,7 @@ Associations are set for tables. All tables are given down below.
 
         Here are the keywords for related associations.
         - **Model-Association-for-belongsToMany-method**
-            - - **belongsToMany** association and related utility methods such as **add+UserItem+s**, **count+UserItem+s**, and **remove+UserItem** are covered.
+            - - **belongsToMany** association and related utility methods such as **add+UserItem+s**, **count+UserItem+s**, and **remove+UserItem** are covered. <br>
+        **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered. In many to many relations, you don't need to specify them openly in belongsToMany relations. The "join table" will automatically delete all common data.
 
     
