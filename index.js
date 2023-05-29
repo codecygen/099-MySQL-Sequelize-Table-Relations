@@ -27,7 +27,7 @@ sequelize
     // await updateUserToUserPassForeignKey();
     // await updateUserPassToUserForeignKey();
     // await bulkCreateUserAndPost();
-    // await bulkCreateUserAndUserItem();
+    await bulkCreateUserAndUserItem();
   })
   .catch((err) => {
     console.error(err);

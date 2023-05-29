@@ -479,10 +479,15 @@ const bulkCreateUserAndUserItem = async () => {
 
   try {
     const createdUsers = await User.bulkCreate(bulkUserSet);
-    const createdUserItems = await UserItem.bulkCreate(bulkUserItemSet);
+    await UserItem.bulkCreate(bulkUserItemSet);
 
-    console.log(createdUsers);
-    console.log(createdUserItems);
+    const foundUser = await User.findOne({ where: { name: "johanna" } });
+    const allFoundUserItems = await UserItem.findAll();
+
+    // Model-Association-for-belongsToMany-method
+    // Associate all items to users
+    // add+UserItem+s
+    await foundUser.addUserItems(allFoundUserItems);
   } catch (err) {
     console.error(err);
   }

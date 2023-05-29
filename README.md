@@ -25,11 +25,11 @@ Associations are set for tables. All tables are given down below.
 
         Here are the keywords for related associations.
         - **Model-Association-for-hasOne-method**
-            - **hasOne** association and related **set+UserPass**, **get+UserPass**, and  **create+UserPass** are covered.
+            - **hasOne** association and related utility methods such as **set+UserPass**, **get+UserPass**, and  **create+UserPass** are covered.
             - **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered.
             - Difference in between hasOne and belongsTo is covered when a foreignKey is updated. (Keyword: **hasOne-belongsTo-Difference-On-ForeignKeys**)
         - **Model-Association-for-belongsTo-method**
-            - **belongsTo** association and related **setUser**, **getUser**, and **create+User** are covered.
+            - **belongsTo** association and related utility methods such as **setUser**, **getUser**, and **create+User** are covered.
             - **onDelete: "CASCADE"**, **onUpdate: "CASCADE** are covered.
             - Difference in between hasOne and belongsTo is covered when a foreignKey is updated. (Keyword: **hasOne-belongsTo-Difference-On-ForeignKeys**)
 
@@ -41,8 +41,8 @@ Associations are set for tables. All tables are given down below.
 
         Here are the keywords for related associations.
         - **Model-Association-for-hasMany-method-for-One-to-Many-Relation**
-            - **hasMany** association and related **add+UserPost+s**, **count+UserPost+s**, and **remove+UserPost** are covered.
-            - Same methods of **hasOne** is also available for **hasMany**. These are mentioned as **set+UserPass**, **get+UserPass**, and  **create+UserPass**.
+            - **hasMany** association and related utility methods such as **add+UserPost+s**, **count+UserPost+s**, and **remove+UserPost** are covered.
+            - Same methods of **hasOne** is also available for **hasMany**. These utility methods are mentioned as **set+UserPass**, **get+UserPass**, and  **create+UserPass**.
         - **Model-Association-for-belongsTo-method-for-One-to-Many-Relation**
 
 
@@ -58,5 +58,6 @@ Associations are set for tables. All tables are given down below.
 
         Here are the keywords for related associations.
         - **Model-Association-for-belongsToMany-method**
+            - - **belongsToMany** association and related utility methods such as **add+UserItem+s**, **count+UserPost+s**, and **remove+UserPost** are covered.
 
     
