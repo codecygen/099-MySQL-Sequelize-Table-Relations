@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const { sequelize, databaseAuth } = require("./models/dbConnection");
+const { User, UserPass, UserPost, UserItem } = require("./models/dbModelAssociations");
 
 const {
   bulkCreateUserAndPass,
