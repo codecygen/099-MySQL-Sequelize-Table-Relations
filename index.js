@@ -22,7 +22,7 @@ sequelize
 
     // =============== One-to-One-Relation ===============
     // -------- Model-Association-for-hasOne-method --------
-    // await bulkCreateUserAndPass();
+    await bulkCreateUserAndPass();
     // await createOneUserAndPass();
     
     // -------- Model-Association-for-belongsTo-method --------
